@@ -1,0 +1,4 @@
+.vercel
+.env*
+Tokens.txt
+GitUpdate.txt

@@ -98,7 +98,11 @@ module.exports = async (req, res) => {
         ...(sha ? { sha } : {})
       })
     });
-    if (!put.ok) return res.status(502).json({ error: `GitHub write failed (${put.status})` });
+    if (!put.ok) {
+      let why = '';
+      try { why = String((await put.json()).message || '').slice(0, 220); } catch (e) {}
+      return res.status(502).json({ error: `GitHub write failed (${put.status})${why ? ': ' + why : ''}` });
+    }
     return res.status(200).json({ ok: true });
   } catch (e) {
     return res.status(502).json({ error: 'GitHub unreachable' });
