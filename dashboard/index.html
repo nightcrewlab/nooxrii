@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Dashboard — NooXRii</title>
+  <meta name="theme-color" content="#07070c" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23a78bfa'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='45' font-size='34' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3EN%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/dash.css" />
+</head>
+<body class="dash-body">
+  <div class="bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><div class="grid"></div></div>
+
+  <header class="nav">
+    <a class="brand" href="/" aria-label="NooXRii"><span class="logo">N</span><span>NooXRii <em class="pill">Dashboard</em></span></a>
+    <div class="nav-r">
+      <a class="link" href="/" data-i18n="nav.projects">Projects</a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="tr" aria-pressed="false">TR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="dash wrap">
+    <section class="d-top">
+      <div>
+        <h1 data-i18n="d.title">Dashboard</h1>
+        <p class="state" id="state"><i></i><span></span></p>
+      </div>
+      <div class="d-actions">
+        <a class="btn" id="btnPreview" href="/?preview=1" target="_blank" rel="noopener" data-i18n="d.preview">Preview</a>
+        <button class="btn" id="btnExport" type="button" data-i18n="d.export">Export</button>
+        <button class="btn" id="btnImport" type="button" data-i18n="d.import">Import</button>
+        <button class="btn primary" id="btnPublish" type="button" data-i18n="d.publish">Publish</button>
+        <input type="file" id="fileImport" accept="application/json,.json" hidden />
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 data-i18n="d.settings">Site settings</h2>
+      <label class="switch-row">
+        <span class="switch"><input type="checkbox" id="optDownload" /><i></i></span>
+        <span>
+          <b data-i18n="d.showDownload">Show download buttons</b>
+          <small data-i18n="d.showDownload.desc"></small>
+        </span>
+      </label>
+      <h3 class="sub" data-i18n="d.profile">Profile links</h3>
+      <div class="grid2">
+        <label class="field"><span data-i18n="f.github">GitHub</span><input id="socGithub" type="url" placeholder="https://github.com/…" /></label>
+        <label class="field"><span data-i18n="f.email">Email</span><input id="socEmail" type="email" placeholder="you@example.com" /></label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="p-head">
+        <h2 data-i18n="d.projects">Projects</h2>
+        <button class="btn primary" id="btnAdd" type="button">+ <span data-i18n="d.add">New project</span></button>
+      </div>
+      <div class="rows" id="rows"></div>
+      <div class="foot-actions"><button class="btn sm danger" id="btnReset" type="button" data-i18n="d.reset">Reset draft</button></div>
+    </section>
+  </main>
+
+  <!-- Edit drawer -->
+  <div class="drawer" id="drawer" hidden>
+    <div class="backdrop" data-dclose></div>
+    <form class="d-sheet" id="form" autocomplete="off" novalidate>
+      <div class="d-head">
+        <h2 id="formTitle"></h2>
+        <button class="close-btn" type="button" data-dclose aria-label="Close">✕</button>
+      </div>
+      <div class="d-scroll">
+        <div class="icon-field">
+          <div class="icon icon-prev" id="iconPrev" aria-hidden="true">✦</div>
+          <div class="ip-body">
+            <label class="field"><span data-i18n="f.icon">Icon (emoji)</span><input name="icon" maxlength="4" placeholder="✦" /></label>
+            <div class="ip-actions">
+              <button class="btn sm" type="button" id="iconUpload" data-i18n="f.iconUpload">Upload image</button>
+              <button class="btn sm danger" type="button" id="iconClear" data-i18n="f.iconClear" hidden>Remove image</button>
+              <input type="file" id="iconFile" accept="image/png,image/jpeg,image/webp,image/svg+xml,image/x-icon,image/vnd.microsoft.icon,.ico,.png,.svg,.webp,.jpg,.jpeg" hidden />
+            </div>
+            <small class="hint" data-i18n="f.iconHelp"></small>
+          </div>
+        </div>
+        <label class="field"><span data-i18n="f.title">Name</span><input name="title" required maxlength="60" /></label>
+        <div class="grid3">
+          <label class="field"><span data-i18n="f.type">Type</span>
+            <select name="type"><option value="extension"></option><option value="desktop"></option><option value="web"></option><option value="other"></option></select></label>
+          <label class="field"><span data-i18n="f.status">Status</span>
+            <select name="status"><option value="active"></option><option value="live"></option><option value="wip"></option><option value="archived"></option></select></label>
+          <label class="field"><span data-i18n="f.version">Version</span><input name="version" maxlength="20" placeholder="1.0.0" /></label>
+        </div>
+        <div class="grid2">
+          <label class="field"><span data-i18n="f.a1">Color 1</span><input name="a1" type="color" value="#a78bfa" /></label>
+          <label class="field"><span data-i18n="f.a2">Color 2</span><input name="a2" type="color" value="#22d3ee" /></label>
+        </div>
+        <label class="field"><span data-i18n="f.tags">Tags</span><input name="tags" placeholder="Chrome Extension, JavaScript, …" /></label>
+
+        <fieldset><legend data-i18n="f.tagline">Tagline</legend>
+          <div class="grid2">
+            <label class="field"><span data-i18n="f.tr">Türkçe</span><input name="tagline_tr" maxlength="140" /></label>
+            <label class="field"><span data-i18n="f.en">English</span><input name="tagline_en" maxlength="140" /></label>
+          </div></fieldset>
+        <fieldset><legend data-i18n="f.summary">Summary</legend>
+          <div class="grid2">
+            <label class="field"><span data-i18n="f.tr">Türkçe</span><textarea name="summary_tr" rows="3" maxlength="400"></textarea></label>
+            <label class="field"><span data-i18n="f.en">English</span><textarea name="summary_en" rows="3" maxlength="400"></textarea></label>
+          </div></fieldset>
+        <fieldset><legend data-i18n="f.features">Features</legend>
+          <div class="grid2">
+            <label class="field"><span data-i18n="f.tr">Türkçe</span><textarea name="features_tr" rows="7"></textarea></label>
+            <label class="field"><span data-i18n="f.en">English</span><textarea name="features_en" rows="7"></textarea></label>
+          </div></fieldset>
+        <fieldset><legend data-i18n="f.note">Note</legend>
+          <div class="grid2">
+            <label class="field"><span data-i18n="f.tr">Türkçe</span><textarea name="note_tr" rows="2" maxlength="300"></textarea></label>
+            <label class="field"><span data-i18n="f.en">English</span><textarea name="note_en" rows="2" maxlength="300"></textarea></label>
+          </div></fieldset>
+        <fieldset><legend data-i18n="f.links">Links</legend>
+          <label class="field"><span data-i18n="f.download">Download</span><input name="download" type="url" placeholder="https://github.com/…/releases/latest" /></label>
+          <label class="field"><span data-i18n="f.github">GitHub</span><input name="github" type="url" placeholder="https://github.com/…" /></label>
+          <div class="grid2">
+            <label class="field"><span data-i18n="f.store">Store</span><input name="store" type="url" /></label>
+            <label class="field"><span data-i18n="f.demo">Demo</span><input name="demo" type="url" /></label>
+          </div></fieldset>
+      </div>
+      <div class="d-foot">
+        <button class="btn" type="button" data-dclose data-i18n="d.cancel">Cancel</button>
+        <button class="btn primary" type="submit" data-i18n="d.save">Save</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Publish dialog -->
+  <dialog id="pubDlg" class="dlg">
+    <form method="dialog" id="pubForm">
+      <h2 data-i18n="d.pub.title">Publish to site</h2>
+      <p data-i18n="d.pub.desc"></p>
+      <label class="field"><span data-i18n="d.pub.pass">Password</span><input id="pubPass" type="password" autocomplete="current-password" required /></label>
+      <p class="dlg-err" id="pubErr" hidden></p>
+      <div class="dlg-foot">
+        <button class="btn" type="button" id="pubCancel" data-i18n="d.cancel">Cancel</button>
+        <button class="btn primary" type="submit" id="pubGo" data-i18n="d.pub.go">Publish</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="/assets/js/common.js"></script>
+  <script src="/assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+{
+  "settings": { "showDownload": false },
+  "projects": [
+    {
+      "id": "lumi-bocek",
+      "icon": "✦",
+      "type": "extension",
+      "status": "active",
+      "version": "1.6.0",
+      "accent": ["#b9a3e8", "#f0a8cf"],
+      "tags": ["Chrome Extension", "JavaScript", "Manifest V3", "Supabase", "Shadow DOM", "UI/UX"],
+      "title": "Lumi + Böcek",
+      "tagline": {
+        "tr": "Kick yayın sohbetine gömülen puan ve komut paneli",
+        "en": "A points and command panel embedded in Kick stream chat"
+      },
+      "summary": {
+        "tr": "İzleyiciler sohbetten ayrılmadan puanlarını görür, komutları önizler ve tek tıkla sohbete yazar.",
+        "en": "Viewers check their points, preview commands and drop them into chat with one click, without leaving the stream."
+      },
+      "features": {
+        "tr": [
+          "İki puan sistemi, tek panel: Lumi (efekt/medya) ve Böcek (oyun içi) sekmeleri",
+          "Canlı katalog: Böcek'in 1.180 komutu 23 kategoride siteden otomatik güncellenir",
+          "Video / resim önizleme ile komutu kullanmadan önce ne yaptığını gör",
+          "Akıllı rozetler: \"atabilirsin ✓\" ya da \"120 ✦ eksik\", puanına göre canlı güncellenir",
+          "Favoriler: yıldızla, en üstte sabit kalsın; fiyatına ulaşınca bildirim al",
+          "Her kartta Kopyala ve Chat'e yaz; Chat'e yaz eski yazıyı silip yenisini koyar",
+          "Gold → Böcek puanı takas hesaplayıcısı",
+          "Açık/koyu tema, sürüklenebilir ve boyutlandırılabilir panel; hepsi hatırlanır",
+          "Shadow DOM ile Kick'in stilleri paneli, panel de Kick'i bozmaz",
+          "Güncelleme başarısız olursa önbellek, o da yoksa gömülü liste devreye girer"
+        ],
+        "en": [
+          "Two point systems, one panel: Lumi (effects/media) and Böcek (in-game) tabs",
+          "Live catalog: Böcek's 1,180 commands across 23 categories update automatically from the site",
+          "Video / image previews so you know what a command does before using it",
+          "Smart badges: \"you can send it ✓\" or \"120 ✦ short\", updated live with your points",
+          "Favorites: star them to pin on top and get notified when you can afford one",
+          "Copy and Send-to-chat on every card; Send-to-chat replaces old text instead of piling up",
+          "Gold → Böcek points exchange calculator",
+          "Light/dark theme, draggable and resizable panel; everything is remembered",
+          "Shadow DOM keeps Kick's styles out of the panel and the panel out of Kick",
+          "If a refresh fails it falls back to cache, then to the bundled list"
+        ]
+      },
+      "note": {
+        "tr": "Bu eklenti resmî değildir; bir yayıncının topluluk sistemi için topluluk adına yapılmış yardımcı bir araçtır. Veriler yalnızca kullanıcının tarayıcısında saklanır.",
+        "en": "This extension is unofficial: a community-made helper for a streamer's community system. Your data stays only in your own browser."
+      },
+      "links": { "github": "", "download": "", "store": "", "demo": "" }
+    },
+    {
+      "id": "nooxdns",
+      "icon": "🛡️",
+      "type": "desktop",
+      "status": "live",
+      "version": "1.0.0",
+      "accent": ["#a855f7", "#ef4444"],
+      "tags": ["Electron", "Node.js", "WireGuard", "DoH", "Tailwind CSS"],
+      "title": "NooXDNS",
+      "tagline": {
+        "tr": "Windows için hızlı DNS koruma ve güvenli bağlantı uygulaması",
+        "en": "A fast DNS protection and secure connection app for Windows"
+      },
+      "summary": {
+        "tr": "Tek tıkla DNS trafiğini şifreler, istersen tüm bağlantıyı WireGuard tünelinden geçirir.",
+        "en": "Encrypts your DNS traffic in one click and can route your whole connection through a WireGuard tunnel."
+      },
+      "features": {
+        "tr": [
+          "Tek tıkla bağlan / kes; her şey otomatik uygulanır ve geri alınır",
+          "3 mod: Guard (Cloudflare WARP + WireGuard), Sadece DNS, Özel (kendi .conf dosyan)",
+          "Yerel DoH sunucusu: sorgular Cloudflare, Google ve Quad9'a şifreli iletilir",
+          "Akıllı yedekleme (failover) ve DNS önbelleği ile hızlı yanıt",
+          "Otomatik endpoint seçimi; tünelin gerçekten çalıştığı doğrulanır",
+          "IPv6 dahil DNS sızıntı koruması",
+          "Uygulama beklenmedik kapansa bile sonraki açılışta her şey eski haline döner",
+          "Açılışta çalıştırma, otomatik bağlanma, sistem tepsisine küçülme",
+          "Türkçe canlı log paneli, tek tıkla kopyalama",
+          "Koyu temalı modern arayüz, tamamen çevrimdışı çalışan gömülü yazı tipi ve ikonlar"
+        ],
+        "en": [
+          "One-click connect / disconnect; everything is applied and rolled back automatically",
+          "3 modes: Guard (Cloudflare WARP + WireGuard), DNS only, Custom (your own .conf)",
+          "Local DoH server: queries go encrypted to Cloudflare, Google and Quad9",
+          "Smart failover and DNS caching for fast answers",
+          "Automatic endpoint selection; verifies that the tunnel really passes traffic",
+          "DNS leak protection including IPv6",
+          "Even after an unexpected exit, everything is restored on the next launch",
+          "Run at startup, auto-connect, minimize to system tray",
+          "Live log panel with one-click copy",
+          "Modern dark UI with fully offline bundled fonts and icons"
+        ]
+      },
+      "note": { "tr": "Windows 10/11 gerekir. DNS ve ağ ayarları için yönetici izni istenir.", "en": "Requires Windows 10/11. Administrator permission is needed for DNS and network settings." },
+      "links": { "github": "", "download": "", "store": "", "demo": "" }
+    },
+    {
+      "id": "nooxkick",
+      "icon": "💬",
+      "type": "extension",
+      "status": "active",
+      "version": "",
+      "accent": ["#53fc18", "#14b8a6"],
+      "tags": ["Chrome Extension", "JavaScript", "MutationObserver", "Kick"],
+      "title": "NooXKick",
+      "tagline": {
+        "tr": "Kick sohbetini ve yayın deneyimini güçlendiren eklenti",
+        "en": "An extension that supercharges Kick chat and viewing"
+      },
+      "summary": {
+        "tr": "Kişi takibi, sohbet çevirisi, kullanıcı kartları, mini yayın pencereleri ve otomatik video kalitesi.",
+        "en": "User tracking, live chat translation, user cards, mini stream windows and automatic video quality."
+      },
+      "features": {
+        "tr": [
+          "Kişi ve @etiket takibi: taşınabilir, boyutlandırılabilir pencereler, kalıcı mesaj geçmişi",
+          "Chat vurgulama: moderatör, doğrulanmış ve seçtiğin kişiler renkli öne çıkar",
+          "Otomatik çeviri: yazdığın mesaj göndermeden önce, gelen mesajlar seçtiğin kişiler için",
+          "Kullanıcı bilgi kartı: profil, rozetler, o kişinin mesajları, resim büyütme",
+          "Mini yayın pencereleri ve takip ettiğin biri yayın açınca bildirim",
+          "Otomatik video kalitesi (1080p, 720p...) açılışta uygulanır",
+          "Emote akışı desteği ve koleksiyon emote'larını otomatik tanıma",
+          "Her özellik ayrı ayrı açılıp kapatılabilir"
+        ],
+        "en": [
+          "Person and @mention tracking: movable, resizable windows with persistent history",
+          "Chat highlighting: mods, verified accounts and chosen people stand out in color",
+          "Auto-translation: your message before sending, incoming messages for people you pick",
+          "User info card: profile, badges, their chat messages, avatar zoom",
+          "Mini stream windows and in-page alerts when someone you follow goes live",
+          "Automatic video quality (1080p, 720p...) applied on load",
+          "Emote stream support and automatic recognition of collection emotes",
+          "Every feature can be toggled on or off individually"
+        ]
+      },
+      "note": { "tr": "Kick ile resmî bir bağlantısı yoktur.", "en": "Not affiliated with Kick in any way." },
+      "links": { "github": "", "download": "", "store": "", "demo": "" }
+    },
+    {
+      "id": "nooxboost",
+      "icon": "🔊",
+      "type": "extension",
+      "status": "live",
+      "version": "4.2.0",
+      "accent": ["#8b5cf6", "#22d3ee"],
+      "tags": ["Chrome Extension", "Manifest V3", "Web Audio API", "JavaScript"],
+      "title": "NooXBOOST",
+      "tagline": {
+        "tr": "Tarayıcıda sesi %800'e kadar yükselt.",
+        "en": "Boost browser audio up to 800%."
+      },
+      "summary": {
+        "tr": "Kısık videoları ve yayınları duyulur yapar. Kick ve YouTube player'ına yerleşik BOOST butonu, yerleşik limiter ile.",
+        "en": "Makes quiet videos and streams audible. Built-in BOOST button in Kick and YouTube players, with a built-in limiter."
+      },
+      "features": {
+        "tr": [
+          "0.1x – 8x arası ses yükseltme, hassas kaydırıcı",
+          "Hazır seviyeler: 0.5x, 1x, 2x, 3x, 5x, 8x",
+          "Kick ve YouTube player'ına yerleşik BOOST widget'ı",
+          "Diğer tüm sitelerde popup üzerinden kontrol",
+          "Sekme bazlı: yalnızca açık sekme etkilenir",
+          "Sonradan eklenen ve iframe içindeki medyaları otomatik yakalar",
+          "Limiter ile yüksek seviyelerde patlama ve çıtırtı azalır",
+          "Tarayıcı kısıtlamalarında popup seni bilgilendirir",
+          "Harici bağımlılık yok"
+        ],
+        "en": [
+          "0.1x – 8x volume boost with a precise slider",
+          "Presets: 0.5x, 1x, 2x, 3x, 5x, 8x",
+          "Built-in BOOST widget in Kick and YouTube players",
+          "Popup control on every other site",
+          "Per-tab: only the current tab is affected",
+          "Automatically catches late-added and iframe media",
+          "Limiter reduces clipping and crackle at high levels",
+          "The popup tells you when the browser restricts audio",
+          "No external dependencies"
+        ]
+      },
+      "note": { "tr": "", "en": "" },
+      "links": { "github": "", "download": "", "store": "", "demo": "" }
+    }
+  ]
+}
